@@ -7,6 +7,7 @@
     <title>Change Photos</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
     <link rel="stylesheet" href="style.css">
+
 </head>
 
 <body>
@@ -18,49 +19,19 @@
     <form method="post" action="handler.php" enctype="multipart/form-data">
         <div class="file-chooser">
             <label for="photo"><h3>Choose File to change to pdf</h3></label>
-            <input type="file" name="photo" id="photo" required>
-            <div>
-                <label for="quality">Quality:</label>
-                <select id="quality" name="quality" class="quality" required>
-                    <option value="manual" class="manual">
-                        manual
-                    </option>
-                    <option value="10">
-                        10%
-                    </option>
-                    <option value="20">
-                        20%
-                    </option>
-                    <option value="30">
-                        30%
-                    </option>
-                    <option value="40">
-                        40%
-                    </option>
-                    <option value="50">
-                        50%
-                    </option>
-                    <option value="60">
-                        60%
-                    </option>
-                    <option value="70">
-                        70%
-                    </option>
-                    <option value="80">
-                        80%
-                    </option>
-                    <option value="90">
-                        90%
-                    </option>
-                    <option value="100" selected>
-                        100%
-                    </option>
-                </select>
-            </div>
+            <input type="file" name="photo" id="photo" class="photo" accept="image/*" required>
 
-            <div class="manual-entry">
-                <label for="manual-data">Value</label>
-                <input type="number" id="manual-data" value=100 max="100" min="0" class="manual-data" name="manual-data">
+            <div class="qual">
+                <label for="quality">Quality(%)</label>
+                <input type="number" id="quality" value=100 max="100" min="0" class="quality" name="quality">
+            </div>
+            <div class="size">
+                <label for="width">Width:</label>
+                <input type="number" min=10 name="width" id="width" required>
+                <label for="height">Height:</label>
+                <input type="number" min=10 name="height" id="height" required>
+                <label for="keep">Keep Aspect Ratio</label>
+                <input type="checkbox" name="keep" id="keep" checked>
             </div>
             <div>
                 <label for="ret-type">Return Type</label>
@@ -77,11 +48,7 @@
             </div>
         </div>
     </form>
-
     <p class="warning"></p>
-
-    <script src="script.js"></script>
-
 </body>
-
+<script src="script.js"></script>
 </html>

@@ -1,54 +1,28 @@
 $(document).ready(function () {
-    manual = false;
-    $(".manual-entry").hide()
-    // disableSubmit();
+    let width = document.querySelector("#width")
+    let height = document.querySelector("#height");
+    let image;
 
-    function hos() {
-        if (!manual) {
-            $(".manual-entry").hide()
 
-        }else{
-            $(".manual-entry").show()
-        }
+    $("#photo").change(function (e) {
+        const reader = new FileReader();
+        reader.readAsDataURL(e.target.files[0]);
+        $(reader).on("load",() => { 
+            changeImage(reader.result)
+            // console.log("Image Loaded")
+         })
+    });
+
+    function changeImage(imgURL){
+        image=new Image();
+        image.src=imgURL;
+        // console.log("changeImage called")
+        image.addEventListener("load",function(){
+            ratio = image.width/image.height;
+            width.value = image.width;
+            height.value = image.height;
+        })
     }
 
-    $(".quality").change(() => {
-        if($(".quality").val()=="manual")
-        manual = true;
-        else
-        manual=false;
-        hos();
-    })
-
-    $(".manual-data").change(()=>{
-        console.log($(".manual-data").val())
-        if($(".manual-data").val()<10){
-            $(".warning").text("Value can not be less than 10")
-        }else if($(".manual-data").val()>100){
-            $(".warning").text("Value can not exceed 100")
-        }else{
-            $(".warning").text("")
-        }
-    })
-
-    $(".manual-data").keyup(()=>{
-        console.log($(".manual-data").val())
-        if($(".manual-data").val()<10){
-            $(".warning").text("Value can not be less than 10")
-        }else if($(".manual-data").val()>100){
-            $(".warning").text("Value can not exceed 100")
-        }else{
-            $(".warning").text("")
-        }
-    })
-
-    $(".reset").click(()=>{
-        manual=false;
-        hos()
-    })
-
-    function disableSubmit(){
-        $(".submit").prop("disabled",true);
-    }
 
 });

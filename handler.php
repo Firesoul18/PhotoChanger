@@ -14,6 +14,7 @@
         $targetDir = "\\uploads\\"; // Directory to store uploaded files
         $targetFile = __DIR__ . $targetDir . basename($_FILES["photo"]["name"]);
         move_uploaded_file($_FILES["photo"]["tmp_name"], $targetFile);
+        
     }
     ?>
 </body>
