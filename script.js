@@ -24,5 +24,32 @@ $(document).ready(function () {
         })
     }
 
+    $("#width").change(()=>{
+        if($("#keep").prop('checked') == true){
+            height.value=Math.floor(($("#width").val())/ratio);
+        }
+    })
+    $("#height").change(()=>{
+        if($("#keep").prop('checked') == true){
+            width.value = Math.floor($("#height").val()*(ratio));
+        }
+    }) 
+    $("#width").keyup(()=>{
+        if($("#keep").prop('checked') == true){
+            height.value=Math.floor(($("#width").val())/ratio);
+        }
+    })
+    $("#height").keyup(()=>{
+        if($("#keep").prop('checked') == true){
+            width.value = Math.floor($("#height").val()*(ratio));
+        }
+    })
+
+    $("#keep").click(()=>{
+        if($("#keep").prop('checked')==true){
+            height.value=Math.floor(($("#width").val())/ratio);
+        }
+    })
+
 
 });

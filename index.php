@@ -21,14 +21,12 @@
             <label for="photo"><h3>Choose File to change to pdf</h3></label>
             <input type="file" name="photo" id="photo" class="photo" accept="image/*" required>
 
-            <div class="qual">
-                <label for="quality">Quality(%)</label>
-                <input type="number" id="quality" value=100 max="100" min="0" class="quality" name="quality">
-            </div>
             <div class="size">
-                <label for="width">Width:</label>
+                <label for="quality">Quality(%) </label>
+                <input type="number" id="quality" value=100 max="100" min="0" class="quality" name="quality">
+                <label for="width">Width</label>
                 <input type="number" min=10 name="width" id="width" required>
-                <label for="height">Height:</label>
+                <label for="height">Height</label>
                 <input type="number" min=10 name="height" id="height" required>
                 <label for="keep">Keep Aspect Ratio</label>
                 <input type="checkbox" name="keep" id="keep" checked>
